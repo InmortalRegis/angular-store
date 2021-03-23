@@ -12,7 +12,7 @@
     </button>
   </div>
   <span class="app-section__item">New item: {{ item }}</span>
-  <ul class="app-section__list">
+  <ul *ngIf="items.length; else noItems" class="app-section__list">
     <li class="app-section__list-item" *ngFor="let item of items; index as i">
       {{ item }}
 
@@ -21,4 +21,7 @@
       </button>
     </li>
   </ul>
+  <ng-template #noItems>
+    <div class="app-section__no-items">No items available</div>
+  </ng-template>
 </section>

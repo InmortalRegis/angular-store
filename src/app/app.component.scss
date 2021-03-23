@@ -41,15 +41,31 @@
     background-color: red;
     margin-left: 0.5rem;
   }
+  &__list {
+    width: 100%;
 
+    padding-inline-start: inherit;
+  }
   &__list-item {
     background-color: lightgray;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
-    min-width: 360px;
+
     display: flex;
     border-radius: 9px;
     align-items: center;
     justify-content: space-between;
+  }
+  &__no-items {
+    background-color: gray;
+    color: white;
+    padding: 4rem;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
   }
 }
