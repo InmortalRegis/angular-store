@@ -2,7 +2,9 @@
   margin: 2px;
   border: 1px solid black;
   border-radius: 5px;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
 }
 img {
   max-width: 100%;
