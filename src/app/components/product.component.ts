@@ -1,33 +1,53 @@
-import { Component, DoCheck, Input, OnDestroy, OnInit } from '@angular/core';
-import { Product } from '../interfaces/product';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges,
+  OnInit,
+  DoCheck,
+  OnDestroy
+} from '@angular/core';
+
+import { Product } from '../product.model';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss'],
+  styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit, OnDestroy, DoCheck {
+export class ProductComponent implements OnInit, DoCheck, OnDestroy {
+
   @Input() product: Product;
+  @Output() productClicked: EventEmitter<any> = new EventEmitter();
+
+  today = new Date();
+
   constructor() {
     console.log('1. constructor');
   }
 
   // ngOnChanges(changes: SimpleChanges) {
   //   console.log('2. ngOnChanges');
+  //   console.log(changes);
   // }
-  ngOnInit(): void {
+
+  ngOnInit() {
     console.log('3. ngOnInit');
   }
 
-  ngOnDestroy(): void {
-    console.log('5. ngOnDestroy');
-  }
-
-  ngDoCheck(): void {
+  ngDoCheck() {
     console.log('4. ngDoCheck');
   }
 
-  addToCart(): void {
-    console.log('Add to cart');
+  ngOnDestroy() {
+    console.log('5. ngOnDestroy');
   }
+
+  addCart() {
+    console.log('añadir al carrito');
+    this.productClicked.emit(this.product.id);
+  }
+
 }
